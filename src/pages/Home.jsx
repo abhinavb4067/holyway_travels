@@ -112,10 +112,11 @@ const Home = () => {
       <section id="home" className="page-section active">
         <section className="hero">
           {/* Background Video */}
-          <video autoPlay muted loop playsInline className="hero-video">
-            <source src="/assets/videos/ayodya.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+         <video autoPlay muted loop playsInline className="hero-video">
+  <source src={`${process.env.PUBLIC_URL}/assets/videos/ayodya.mp4`} type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
 
           {/* Overlay */}
           <div className="hero-overlay"></div>
@@ -137,7 +138,10 @@ const Home = () => {
       {/* Section 1: Ayodhya & Ram Mandir */}
       <div className="container">
         <div className="image-section">
-          <img src="/assets/images/raman_with_amb.png" alt="Lord Rama Statue" />
+<img
+  src={`${process.env.PUBLIC_URL}/assets/images/raman_with_amb.png`}
+  alt="Lord Rama Statue"
+/>
         </div>
         <div className="text-section">
           <h2>Overview</h2>
@@ -158,7 +162,10 @@ const Home = () => {
       {/* Section 2: About Lord Rama */}
       <div className="container reverse">
         <div className="image-section">
-          <img src="/assets/images/rama_god.jpg" alt="Lord Rama Image" />
+<img
+  src={`${process.env.PUBLIC_URL}/assets/images/rama_god.jpg`}
+  alt="Lord Rama Image"
+/>
         </div>
         <div className="text-section">
           <h2>About Lord Rama</h2>
@@ -202,17 +209,26 @@ const Home = () => {
         <h2>Popular Heritage Tours</h2>
         <div className="cards">
           <div className="card fade-in">
-            <img src="/assets/images/Ayodhya-Ram-Mandir.jpg" alt="Ram Mandir" />
+<img
+  src={`${process.env.PUBLIC_URL}/assets/images/Ayodhya-Ram-Mandir.jpg`}
+  alt="Ram Mandir"
+/>
             <h3>Ayodhya Ram Mandir</h3>
             <p>Witness the majestic Ram Mandir, the heart of Hindu faith and devotion.</p>
           </div>
           <div className="card fade-in">
-            <img src="/assets/images/Hanuman_Garhi.avif" alt="Hanuman Garhi" />
+<img
+  src={`${process.env.PUBLIC_URL}/assets/images/Hanuman_Garhi.avif`}
+  alt="Hanuman Garhi"
+/>
             <h3>Hanuman Garhi</h3>
             <p>Experience divine blessings at Hanuman Garhi, the fortress-like temple of Lord Hanuman.</p>
           </div>
           <div className="card fade-in">
-            <img src="/assets/images/kanak-bhavan.jpg" alt="Kanak Bhavan" />
+<img
+  src={`${process.env.PUBLIC_URL}/assets/images/kanak-bhavan.jpg`}
+  alt="Kanak Bhavan"
+/>
             <h3>Kanak Bhavan</h3>
             <p>Visit the sacred palace where Sita and Ram lived after their marriage, known as Kanak Bhavan.</p>
           </div>
@@ -256,10 +272,23 @@ const Home = () => {
       <section className="gallery">
         <h2>Gallery</h2>
         <div className="gallery-grid">
-          <img src="/assets/images/Ayodhya-Saryu-Ghat.png" alt="Ayodhya Ghat" />
-          <img src="/assets/images/ayodya_diwali.jpg" alt="Ayodhya Diwali" />
-          <img src="/assets/images/temple.jpg" alt="Temples" />
-          <img src="/assets/images/ram_mandir.jpg" alt="Ram Mandir Model" />
+       <img
+  src={`${process.env.PUBLIC_URL}/assets/images/Ayodhya-Saryu-Ghat.png`}
+  alt="Ayodhya Ghat"
+/>
+<img
+  src={`${process.env.PUBLIC_URL}/assets/images/ayodya_diwali.jpg`}
+  alt="Ayodhya Diwali"
+/>
+<img
+  src={`${process.env.PUBLIC_URL}/assets/images/temple.jpg`}
+  alt="Temples"
+/>
+<img
+  src={`${process.env.PUBLIC_URL}/assets/images/ram_mandir.jpg`}
+  alt="Ram Mandir Model"
+/>
+
         </div>
       </section>
 

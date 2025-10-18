@@ -30,7 +30,7 @@ const About = () => {
       <div
         className="page-header"
         style={{
-          backgroundImage: `url(/assets/images/about_us.jpg)`,
+backgroundImage: `url(${process.env.PUBLIC_URL}/assets/images/about_us.jpg)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -48,7 +48,7 @@ const About = () => {
       <div className="about-container">
         {/* Image with animation */}
         <div className="about-image" ref={imageRef}>
-          <img src="/assets/images/logo.jpg" alt="Logo" />
+<img src={`${process.env.PUBLIC_URL}/assets/images/logo.jpg`} alt="Logo" />
         </div>
 
         {/* Text with fade-in */}

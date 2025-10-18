@@ -33,7 +33,7 @@ const Contact = () => {
       <section id="contact" className="contact-section">
         {/* Top image banner */}
         <div className="contact-image">
-          <img src="/assets/images/about_us.jpg" alt="About Us" />
+<img src={`${process.env.PUBLIC_URL}/assets/images/about_us.jpg`} alt="About Us" />
           <div className="heading-wrapper">
             <h1 className="contact_heading">Contact Us</h1>
           </div>
@@ -63,11 +63,12 @@ const Contact = () => {
           rel="noreferrer"
           className="whatsapp-link"
         >
-          <img
-            src="/assets/images/whtsp.png"
-            alt="WhatsApp"
-            className="whatsapp-icon"
-          />
+         <img
+  src={`${process.env.PUBLIC_URL}/assets/images/whtsp.png`}
+  alt="WhatsApp"
+  className="whatsapp-icon"
+/>
+
           WhatsApp <span className="plain-number">+91 80890 57655</span>
         </a>
       </li>
