@@ -23,11 +23,12 @@ const Navbar = () => {
     <div className="navbar-container">
       <nav className="navbar">
         <div className="navbar-left">
-          <img
-            src="assets/images/logo_without_name.png"
-            alt="Logo"
-            className="navbar-logo"
-          />
+       <img
+  src={`${process.env.PUBLIC_URL}/assets/images/logo_without_name.png`}
+  alt="Logo"
+  className="navbar-logo"
+/>
+
           HolyWay Travels
           <div className="divider"></div>
           <div className="navbar-links">
