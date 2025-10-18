@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/holyway_travels/static/css/main.2e9fa2e6.css",
+    "main.js": "/holyway_travels/static/js/main.990eac31.js",
+    "index.html": "/holyway_travels/index.html",
+    "main.2e9fa2e6.css.map": "/holyway_travels/static/css/main.2e9fa2e6.css.map",
+    "main.990eac31.js.map": "/holyway_travels/static/js/main.990eac31.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2e9fa2e6.css",
+    "static/js/main.990eac31.js"
+  ]
+}
