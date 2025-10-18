@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate(); // ✅ for programmatic navigation
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
 
@@ -23,12 +24,11 @@ const Navbar = () => {
     <div className="navbar-container">
       <nav className="navbar">
         <div className="navbar-left">
-       <img
-  src={`${process.env.PUBLIC_URL}/assets/images/logo_without_name.png`}
-  alt="Logo"
-  className="navbar-logo"
-/>
-
+          <img
+            src={`${process.env.PUBLIC_URL}/assets/images/logo_without_name.png`}
+            alt="Logo"
+            className="navbar-logo"
+          />
           HolyWay Travels
           <div className="divider"></div>
           <div className="navbar-links">
@@ -40,7 +40,7 @@ const Navbar = () => {
       </nav>
 
       <div className="navbar-right">
-        <button onClick={() => (window.location.href = "/")}>GET STARTED</button>
+        <button onClick={() => navigate("/")}>GET STARTED</button>
       </div>
 
       {/* Menu button */}
@@ -66,7 +66,12 @@ const Navbar = () => {
           Contact
         </Link>
         <div className="mobile-getstarted" style={{ border: "1px solid" }}>
-          <button onClick={() => (window.location.href = "/")}>
+          <button
+            onClick={() => {
+              navigate("/");
+              setMenuOpen(false); // ✅ close mobile menu after navigation
+            }}
+          >
             GET STARTED
           </button>
         </div>
