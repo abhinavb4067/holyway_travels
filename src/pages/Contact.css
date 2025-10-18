@@ -1,0 +1,151 @@
+.contact-section {
+  text-align: center;
+  font-family: 'Georgia', serif;
+  color: white;
+}
+
+/* Top banner image section */
+.contact-image {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.contact-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 65%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.heading-wrapper {
+  position: relative;
+  z-index: 2;
+}
+
+.contact_heading {
+ font-size: 2.5rem;
+  color: white;
+  text-align: center;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  position: relative;       /* ensure we can move it */
+  top: -50px;   
+}
+
+/* Contact info section */
+.contact-content {
+  background-color: #ffffff;
+  padding: 10px 10px;
+    margin-top: -75px; /* moves the content upward closer to the image */
+
+  color: #0f0e0d;
+}
+
+/* Animate only the inner texts */
+.contact-text {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+}
+
+.contact-text.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact-text h1 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  color: #5a3e1b;
+}
+
+
+.contact-text ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-text li {
+  margin: 15px 0;
+  font-size: 1.1rem;
+}
+
+/* Reset unwanted inherited font styles */
+.plain-number {
+  font-family: "Arial", sans-serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  color: inherit !important;
+  letter-spacing: normal !important;
+}
+
+/* Black text lines */
+.black-text {
+  color: #0f0e0d;
+}
+
+.black-text a {
+  color: #0f0e0d;
+  text-decoration: none;
+}
+
+.black-text a:hover {
+  color: #d4a373;
+}
+
+/* WhatsApp green line */
+.whatsapp-text a {
+  color: #25D366;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+.whatsapp-text a:hover {
+  color: #1da851;
+}
+.contact-intro {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  color: #0f0e0d;
+  line-height: 1.6;
+}
+
+
+
+.whatsapp-icon {
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* Simple fade-in animation for heading */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact_heading {
+    font-size: 2rem;
+  }
+
+  .contact-text h2 {
+    font-size: 1.6rem;
+  }
+}

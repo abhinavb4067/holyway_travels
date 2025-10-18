@@ -1,0 +1,168 @@
+/* Section Background Full Width */
+#about {
+  width: 100%;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 0.95)
+    ),
+    url("https://img.freepik.com/free-vector/indian-pattern-background_1048-1940.jpg")
+      no-repeat center/cover fixed;
+  border-radius: 0;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  padding: 80px 0; /* ✅ Removed left-right (5%) padding */
+}
+
+
+/* Flex Layout */
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+/* Image Style + Animation */
+.about-image {
+  flex: 1;
+  text-align: center;
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 1.2s ease;
+}
+
+.about-image.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.about-image img {
+  width: 260px;
+  height: auto;
+  border-radius: 50%;
+  border: 8px solid #fff;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.about-image img:hover {
+  transform: scale(1.15) rotate(3deg);
+  box-shadow: 0 20px 50px rgba(160, 82, 45, 0.6);
+}
+
+/* Text Content + Animation */
+.content {
+  flex: 2;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1.2s ease;
+}
+
+.content.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.content h2 {
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+  color: #5a3e1b;
+  font-weight: bold;
+  position: relative;
+}
+
+.content h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #a0522d;
+  margin-top: 8px;
+  border-radius: 2px;
+}
+
+.content p {
+  line-height: 1.9;
+  margin-bottom: 18px;
+  color: #333;
+  font-size: 1.1rem;
+  animation: fadeIn 2s ease;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===================== */
+/* 📱 Responsive Design */
+/* ===================== */
+
+/* Tablet */
+@media (max-width: 992px) {
+  .about-container {
+    gap: 30px;
+  }
+
+  .content p {
+    font-size: 1.05rem;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+  }
+
+  .content h2 {
+    font-size: 2rem;
+  }
+
+  .about-image img {
+    width: 220px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image img {
+    width: 180px;
+    margin-top: 5%;
+  }
+
+  .content h2 {
+    font-size: 1.8rem;
+  }
+
+  .content p {
+    font-size: 1rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .about-image img {
+    width: 150px;
+        margin-top: 5%;
+
+  }
+
+  .content h2 {
+    font-size: 1.5rem;
+  }
+
+  .content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+}
