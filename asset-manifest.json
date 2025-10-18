@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/holyway_travels/static/css/main.161b00ad.css",
-    "main.js": "/holyway_travels/static/js/main.cb10ce6a.js",
+    "main.css": "/holyway_travels/static/css/main.2b1c4de1.css",
+    "main.js": "/holyway_travels/static/js/main.9464714b.js",
     "index.html": "/holyway_travels/index.html",
-    "main.161b00ad.css.map": "/holyway_travels/static/css/main.161b00ad.css.map",
-    "main.cb10ce6a.js.map": "/holyway_travels/static/js/main.cb10ce6a.js.map"
+    "main.2b1c4de1.css.map": "/holyway_travels/static/css/main.2b1c4de1.css.map",
+    "main.9464714b.js.map": "/holyway_travels/static/js/main.9464714b.js.map"
   },
   "entrypoints": [
-    "static/css/main.161b00ad.css",
-    "static/js/main.cb10ce6a.js"
+    "static/css/main.2b1c4de1.css",
+    "static/js/main.9464714b.js"
   ]
 }
