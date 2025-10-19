@@ -16,17 +16,67 @@ body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; overfl
   z-index: 1000; /* keeps navbar above all other content */
 }
 
+* {
+  box-sizing: border-box;
+}
+
+.navbar,
+.navbar-right {
+  background-color: rgba(43, 33, 31, 0.85);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ✅ Main navbar layout */
 .navbar {
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(43, 33, 31, 0.85);
-  border-radius: 8px;
   padding: 10px 20px;
-  backdrop-filter: blur(4px);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  min-height: 80px; /* Same height on desktop */
+  width: 100%;
+  overflow-x: hidden;
 }
+
+/* ✅ Right section */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  min-height: 80px; /* Match height */
+  flex-shrink: 0;
+}
+
+/* ✅ Prevent any scroll issues */
+body,
+html {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* ✅ Responsive layout */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 16px;
+    min-height: auto;
+  }
+
+  .navbar-right {
+    width: 100%;
+    padding: 10px;
+    min-height: auto;
+    margin-top: 8px;
+    justify-content: center;
+  }
+}
+
 
 .navbar-left {
   display: flex;
@@ -62,22 +112,13 @@ body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; overfl
   color: #d4a373;
 }
 
-/* Right Box */
 .navbar-right {
-  background-color: rgba(43, 33, 31, 0.85);
-  border-radius: 8px;
   text-align: center;
   padding: 10px 22px;
-  backdrop-filter: blur(4px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  height: 80px;
-
-  /* ✅ Centering content */
   display: flex;
-  justify-content: center; /* horizontal center */
-  align-items: center;     /* vertical center */
+  justify-content: center; /* center horizontally */
+  align-items: center;     /* center vertically */
 }
-
 
 .navbar-right button {
   background: none;
@@ -130,6 +171,12 @@ body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; overfl
   border: 1.5px solid #f1ede9;
   border-radius: 50%;
   transition: opacity 0.3s ease;
+}
+.company-name {
+  white-space: nowrap;       /* ✅ never wrap to next line */
+  overflow: hidden;          /* ✅ hides any overflow */
+  text-overflow: ellipsis;   /* ✅ adds "..." if it’s too long */
+  font-size: clamp(1rem, 2vw, 1.8rem); /* ✅ responsive font size */
 }
 
 /* Active X icon */
@@ -206,7 +253,7 @@ body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; overfl
 /* Mobile (≤768px) */
 @media (max-width: 768px) {
   .navbar-logo {
-    height: 26px;
+    height: 24px;
   }
 }
 
