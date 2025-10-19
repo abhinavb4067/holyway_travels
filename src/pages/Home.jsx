@@ -114,7 +114,7 @@ const Home = () => {
     {
       question: "🙏 Can we customize our pilgrimage itinerary?",
       answer:
-        "Absolutely! HolyWay Travels offers customized packages to suit your spiritual needs and time availability.",
+        "Absolutely! Holyway Travels offers customized packages to suit your spiritual needs and time availability.",
     },
     {
       question: "💳 How can I book a trip?",
@@ -159,7 +159,7 @@ const Home = () => {
 
           {/* Hero Content */}
           <div className="hero-content">
-  <h2 className="hero-title">Welcome to HolyWay Travels</h2>
+  <h2 className="hero-title">Welcome to Holyway Travels</h2>
   <h3 className="hero-subtitle">
     <span id="typed"></span>
   </h3>
@@ -175,10 +175,10 @@ const Home = () => {
 
       {/* ================= SECTIONS ================= */}
       {/* Section 1: Ayodhya & Ram Mandir */}
-      <div className="container">
-        <div className="image-section">
+      <div className="container first_container">
+        <div className="image-section rama_sita">
           <img
-            src={`${process.env.PUBLIC_URL}/assets/images/raman_with_amb.png`}
+            src={`${process.env.PUBLIC_URL}/assets/images/ram_vs_ravan.jpg`}
             alt="Lord Rama Statue"
           />
         </div>
@@ -245,7 +245,7 @@ const Home = () => {
 
       {/* Why Choose Us */}
       <section className="why-choose">
-        <h2>Why Travel With HolyWay?</h2>
+        <h2>Why Travel With Holyway?</h2>
         <div className="features">
           <div className="feature">
             <div className="icon">✨</div>
@@ -377,7 +377,7 @@ const Home = () => {
         <div className="testimonial-list">
           <div className="testimonial">
             <p>
-              “HolyWay Travels made my pilgrimage to Ayodhya unforgettable.
+              “Holyway Travels made my pilgrimage to Ayodhya unforgettable.
               Everything was perfectly organized.”
             </p>
             <h4>- Anjali Sharma</h4>

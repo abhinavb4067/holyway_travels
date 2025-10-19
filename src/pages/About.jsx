@@ -53,9 +53,9 @@ backgroundImage: `url(${process.env.PUBLIC_URL}/assets/images/about_us.jpg)`,
 
         {/* Text with fade-in */}
         <div className="content" ref={contentRef}>
-          <h2>About HolyWay Travels</h2>
+          <h2>About Holyway Travels</h2>
           <p>
-            <strong>HolyWay Travels</strong> is a dedicated travel agency based
+            <strong>Holyway Travels</strong> is a dedicated travel agency based
             in India, created to connect people with the divine heritage of
             Hindu culture. Our journey began with the vision of providing
             authentic spiritual experiences to devotees, pilgrims, and explorers
@@ -67,7 +67,7 @@ backgroundImage: `url(${process.env.PUBLIC_URL}/assets/images/about_us.jpg)`,
             birthplace of Lord Ram. Our goal is to create a seamless blend of
             spirituality, comfort, and cultural immersion. Whether you are
             seeking blessings, exploring history, or experiencing the festivals
-            of India, HolyWay Travels ensures every journey becomes a soulful
+            of India, Holyway Travels ensures every journey becomes a soulful
             memory.
           </p>
           <p>

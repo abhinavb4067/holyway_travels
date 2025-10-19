@@ -39,7 +39,7 @@ body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; overfl
 
 .divider {
   width: 1px;
-  height: 20px;
+  height: 40px;
   background-color: rgba(255,255,255,0.3);
   margin: 0 20px;
 }
@@ -52,7 +52,7 @@ body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; overfl
 .navbar-links a {
   color: #f1ede9;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 19px;
   font-weight: 600;
   letter-spacing: 2px;
   transition: color 0.2s ease;
@@ -66,10 +66,18 @@ body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; overfl
 .navbar-right {
   background-color: rgba(43, 33, 31, 0.85);
   border-radius: 8px;
+  text-align: center;
   padding: 10px 22px;
   backdrop-filter: blur(4px);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  height: 80px;
+
+  /* ✅ Centering content */
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: center;     /* vertical center */
 }
+
 
 .navbar-right button {
   background: none;
@@ -89,6 +97,7 @@ body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; overfl
   padding: 10px 14px;
   cursor: pointer;
   display: none;
+  height: 80px;
   backdrop-filter: blur(4px);
   position: relative;
   z-index: 5;
@@ -144,7 +153,7 @@ body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; overfl
   padding: 15px 20px;
   z-index: 4;
   position: absolute;
-  top: 40px;
+  top: 75px;
   left: 0;
   right: 0;
   animation: fadeIn 0.3s ease;
@@ -169,10 +178,12 @@ body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; overfl
   text-align: center;
   margin-top: 12px;
   box-shadow: inset 0 0 2px rgba(255,255,255,0.05);
+    border: 1px solid;
+
 }
 .mobile-getstarted button {
-  background: none;
   border: none;
+  background: none;
   color: #f1ede9;
   font-size: 14px;
   letter-spacing: 2px;
@@ -185,11 +196,20 @@ body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; overfl
   to {opacity: 1; transform: translateY(0);}
 }
 
+/* Default (Desktop) */
 .navbar-logo {
-  height: 24px;
+  height: 36px;
   width: auto;
   margin-right: 10px;
 }
+
+/* Mobile (≤768px) */
+@media (max-width: 768px) {
+  .navbar-logo {
+    height: 26px;
+  }
+}
+
 
 /* Responsive */
 @media (max-width: 768px) {

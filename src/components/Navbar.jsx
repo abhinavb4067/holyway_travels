@@ -4,18 +4,14 @@ import "./Navbar.css";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const navigate = useNavigate(); // ✅ for programmatic navigation
+  const navigate = useNavigate();
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
 
-  // ✅ Automatically close mobile menu on window resize
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > 768) {
-        setMenuOpen(false);
-      }
+      if (window.innerWidth > 768) setMenuOpen(false);
     };
-
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -29,8 +25,14 @@ const Navbar = () => {
             alt="Logo"
             className="navbar-logo"
           />
-          HolyWay Travels
+
+          <div className="navbar-title">
+            <h3 className="company-name">Holyway Travels</h3>
+            <p className="company-slogan">Creating divine memories...</p>
+          </div>
+
           <div className="divider"></div>
+
           <div className="navbar-links">
             <Link to="/" className="nav-link">Home</Link>
             <Link to="/about" className="nav-link">About</Link>
@@ -65,11 +67,12 @@ const Navbar = () => {
         <Link to="/contact" className="nav-link" onClick={() => setMenuOpen(false)}>
           Contact
         </Link>
-        <div className="mobile-getstarted" style={{ border: "1px solid" }}>
+
+        <div className="mobile-getstarted">
           <button
             onClick={() => {
               navigate("/");
-              setMenuOpen(false); // ✅ close mobile menu after navigation
+              setMenuOpen(false);
             }}
           >
             GET STARTED

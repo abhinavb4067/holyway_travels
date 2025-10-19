@@ -45,7 +45,7 @@ const Contact = () => {
   <div className="contact-text" ref={textRef}>
     <h1>Get in Touch</h1>
     <p className="contact-intro">
-      Have a question or need assistance? Our team at HolyWay Travels is here to help you plan a seamless and memorable journey. 
+      Have a question or need assistance? Our team at Holyway Travels is here to help you plan a seamless and memorable journey. 
       Whether you're looking for personalized travel advice, tour packages, or booking assistance, we are just a call, WhatsApp, or email away. 
       Let us make your travel experience truly unforgettable.
     </p>
