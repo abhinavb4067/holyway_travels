@@ -25,7 +25,7 @@ const About = () => {
   }, []);
 
   return (
-    <section id="about">
+    <section id="about" className="about-page">
       {/* Page Header / Hero */}
       <div
         className="page-header"
