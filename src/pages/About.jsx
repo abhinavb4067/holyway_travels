@@ -79,6 +79,7 @@ backgroundImage: `url(${process.env.PUBLIC_URL}/assets/images/about_us.jpg)`,
           </p>
         </div>
       </div>
+      
     </section>
   );
 };
