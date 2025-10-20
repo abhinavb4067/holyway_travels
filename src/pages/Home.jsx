@@ -124,7 +124,10 @@ const Home = () => {
   ];
 
   return (
+          <div className="home-page">
+
     <>
+
       {/* ================= HOME HERO ================= */}
       <section id="home" className="page-section active">
         <section className="hero">
@@ -410,6 +413,7 @@ const Home = () => {
         </div>
       </section>
     </>
+      </div>
   );
 };
 

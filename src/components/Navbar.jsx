@@ -25,11 +25,15 @@ const Navbar = () => {
             alt="Logo"
             className="navbar-logo"
           />
+<div className="navbar-title">
+  <h3 className="company-name">Holyway Travels</h3>
+  <p className="company-slogan">Creating divine memories...</p>
+</div>
 
-          <div className="navbar-title">
-            <h3 className="company-name">Holyway Travels</h3>
-            <p className="company-slogan">Creating divine memories...</p>
-          </div>
+
+
+
+
 
           <div className="divider"></div>
 

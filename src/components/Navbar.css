@@ -1,6 +1,36 @@
 /* RESET */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; overflow-x: hidden; }
+body {  line-height: 1.6; color: #333; overflow-x: hidden; }
+
+.company-name {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;           /* Bold like the image */
+  font-style: normal;
+  font-size: 2.6rem;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.company-slogan {
+  font-weight: 400;
+  font-size: 1.3rem;
+  color: #ffeb3b;
+  margin-top: 0.3rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .company-name {
+    font-size: 1.8rem;
+  }
+
+  .company-slogan {
+    font-size: 1rem;
+  }
+}
 
 /* ===================== NAVBAR ===================== */
 .navbar-container {
@@ -45,7 +75,7 @@ body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; overfl
   align-items: center;
   justify-content: center;
   padding: 10px 22px;
-  min-height: 80px; /* Match height */
+  min-height: 88px; /* Match height */
   flex-shrink: 0;
 }
 
@@ -138,7 +168,7 @@ html {
   padding: 10px 14px;
   cursor: pointer;
   display: none;
-  height: 80px;
+  height: 70px;
   backdrop-filter: blur(4px);
   position: relative;
   z-index: 5;
@@ -196,11 +226,11 @@ html {
   flex-direction: column;
   background-color: rgba(43, 33, 31, 0.95);
   border-radius: 8px;
-  margin: 13px;
+  margin: 5px;
   padding: 15px 20px;
   z-index: 4;
   position: absolute;
-  top: 75px;
+  top: 70px;
   left: 0;
   right: 0;
   animation: fadeIn 0.3s ease;
