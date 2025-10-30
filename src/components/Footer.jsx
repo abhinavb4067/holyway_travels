@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer>
       <p>
-        © 2025 “Holyway Travels | Designed by{" "}
+        © 2025 Holyway Travels | Designed by{" "}
         <a href="https://www.abhinavb.com" target="_blank" rel="noreferrer">
           www.abhinavb.com
         </a>
