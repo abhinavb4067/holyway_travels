@@ -12,7 +12,8 @@
 .video-preloader {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #fffefc 0%, #f5e6cc 100%);
+  background: black;
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
