@@ -1,36 +1,49 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Typed from "typed.js";
 import { Link } from "react-router-dom";
-
-import "./Home.css"; // Move all your CSS here or keep it modular
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import "./Home.css";
 
 const Home = () => {
   const [openDay, setOpenDay] = useState(null);
   const [openFAQ, setOpenFAQ] = useState(null);
-  const [videoLoaded, setVideoLoaded] = useState(false); // For hero video
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
+  const scrollRef = useRef(null);
+
+  // ✅ Smooth horizontal scroll function
+  const scroll = (direction) => {
+    const { current } = scrollRef;
+    if (current) {
+      const scrollAmount = direction === "left" ? -300 : 300;
+      current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
+  };
+
+  // ✅ Typed.js initialization
   useEffect(() => {
     const typed = new Typed("#typed", {
-      strings: ["Ayodhya Heritage", "Ram Mandir Tours", "Spiritual Journeys"],
+      strings: [
+        "Vacation Trips",
+        "Heritage Tours",
+        "Adventure Getaways",
+        "Spiritual Journeys",
+        "Family Holidays",
+      ],
       typeSpeed: 80,
       backSpeed: 40,
       loop: true,
     });
-
-    return () => {
-      typed.destroy();
-    };
+    return () => typed.destroy();
   }, []);
 
-  // Detect when video is ready to play
+  // ✅ Hero video load detection
   useEffect(() => {
     const video = document.getElementById("heroVideo");
     const handleCanPlay = () => setVideoLoaded(true);
-
     if (video) {
       video.addEventListener("canplaythrough", handleCanPlay);
     }
-
     return () => {
       if (video) {
         video.removeEventListener("canplaythrough", handleCanPlay);
@@ -46,7 +59,6 @@ const Home = () => {
     setOpenFAQ(openFAQ === index ? null : index);
   };
 
-  // Mobile menu toggle
   const toggleMenu = () => {
     const menu = document.getElementById("mobileMenu");
     const icon = document.getElementById("menuIcon");
@@ -101,46 +113,54 @@ const Home = () => {
   ];
 
   const faqs = [
-    {
-      question: "🕉 What is included in the Ayodhya Tour package?",
-      answer:
-        "Our package includes guided visits to Ram Mandir, Hanuman Garhi, Kanak Bhavan, and other heritage spots. Transportation and local assistance are also provided.",
-    },
-    {
-      question: "🚗 Do you provide transport services?",
-      answer:
-        "Yes, we arrange comfortable Traveller, cars, and pickup/drop services depending on the package.",
-    },
-    {
-      question: "🙏 Can we customize our pilgrimage itinerary?",
-      answer:
-        "Absolutely! Holyway Travels offers customized packages to suit your spiritual needs and time availability.",
-    },
-    {
-      question: "💳 How can I book a trip?",
-      answer:
-        "You can contact us directly via WhatsApp, phone, or social media to confirm your booking.",
-    },
-  ];
+  {
+    question: "🧭 What types of tours do you offer?",
+    answer:
+      "We offer a wide range of trips including family vacations, honeymoon packages, adventure tours, spiritual journeys, and international holidays — all customizable to your preferences.",
+  },
+  {
+    question: "🚗 Do you provide transportation and accommodation?",
+    answer:
+      "Yes! We arrange comfortable vehicles, hotel stays, and all travel essentials — ensuring a smooth and worry-free experience from start to finish.",
+  },
+  {
+    question: "🎯 Can I customize my travel itinerary?",
+    answer:
+      "Absolutely! Whether you want to add destinations, adjust dates, or choose specific activities, we’ll tailor your itinerary to match your travel goals.",
+  },
+  {
+    question: "💳 How can I book a trip with Holyway?",
+    answer:
+      "You can contact us via WhatsApp, call, or our website inquiry form. Once you confirm your package, our team will guide you through the easy booking process.",
+  },
+  {
+    question: "🌍 Do you offer international tour packages?",
+    answer:
+      "Yes, we organize trips to popular international destinations — from Dubai and Singapore to Europe and beyond — complete with visa assistance and travel guidance.",
+  },
+  {
+    question: "👨‍👩‍👧 Is Holyway suitable for family and group travel?",
+    answer:
+      "Definitely! We specialize in family-friendly and group tours, ensuring safety, comfort, and activities everyone will enjoy together.",
+  },
+];
 
   return (
-          <div className="home-page">
-
-    <>
-
-      {/* ================= HOME HERO ================= */}
+    <div className="home-page">
+      {/* ================= HERO SECTION ================= */}
       <section id="home" className="page-section active">
         <section className="hero">
-          {/* Placeholder Image
           {!videoLoaded && (
-            <img
-              src={`${process.env.PUBLIC_URL}/assets/images/temple.jpg`}
-              alt="Ayodhya Background"
-              className="hero-video-placeholder"
-            />
-          )} */}
+            <div className="video-preloader">
+              <img
+                src={`${process.env.PUBLIC_URL}/assets/images/logo.jpg`}
+                alt="Loading Holyway Travels"
+                className="preloader-logo"
+              />
+              <p className="preloader-text">Loading divine experience...</p>
+            </div>
+          )}
 
-          {/* Background Video */}
           <video
             id="heroVideo"
             autoPlay
@@ -151,174 +171,161 @@ const Home = () => {
             style={{ display: videoLoaded ? "block" : "none" }}
           >
             <source
-              src={`${process.env.PUBLIC_URL}/assets/videos/ayodya.mp4`}
+              src={`${process.env.PUBLIC_URL}/assets/videos/natural.mp4`}
               type="video/mp4"
             />
             Your browser does not support the video tag.
           </video>
 
-          {/* Overlay */}
           <div className="hero-overlay"></div>
 
-          {/* Hero Content */}
           <div className="hero-content">
-  <h2 className="hero-title">Welcome to Holyway Travels</h2>
-  <h3 className="hero-subtitle">
-    <span id="typed"></span>
-  </h3>
- <div className="know_more">
-  <Link to="/about" className="btn">
-    Know More
-  </Link>
-</div>
-</div>
-
+            <h2 className="hero-title">Welcome to Holyway Travels</h2>
+            <h3 className="hero-subtitle">
+              <span id="typed"></span>
+            </h3>
+            <div className="know_more">
+              <Link to="/about" className="btn">
+                Know More
+              </Link>
+            </div>
+          </div>
         </section>
       </section>
 
-      {/* ================= SECTIONS ================= */}
-      {/* Section 1: Ayodhya & Ram Mandir */}
-      <div className="container first_container">
-        <div className="image-section rama_sita">
+      {/* ================= ABOUT SECTION ================= */}
+      <section className="home-section">
+        <div className="home-image-left">
           <img
-            src={`${process.env.PUBLIC_URL}/assets/images/ram_vs_ravan.jpg`}
-            alt="Lord Rama Statue"
+            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+            alt="Coastal View"
           />
         </div>
-        <div className="text-section">
-          <h2>Overview</h2>
-          <h1>Ayodhya: The Divine Land of Lord Rama’s Birth</h1>
-          <p>
-            Ayodhya, one of the holiest cities for Hindus, is revered as the
-            birthplace of Lord Rama. Counted among the seven most sacred
-            pilgrimage sites in India, this vibrant city of Uttar Pradesh is
-            deeply connected with ancient history, mythology, and the Nawabi
-            era. Situated on the banks of the Sarayu River, Ayodhya—historically
-            called Saketa—welcomes devotees and visitors with its timeless
-            charm. The city is adorned with grand temples, heritage sites,
-            enlightening museums, and serene gardens.
-          </p>
-          <p>
-            Buddhist and Jain scriptures also describe Ayodhya as a place visited
-            by their spiritual leaders, Lord Buddha and Mahavira. Followers of
-            Jainism believe that the city was the birthplace of five
-            Tirthankaras: Rishabhanatha, Jitanatha, Abhinandananatha, Sumatinatha,
-            and Anantanatha.
-          </p>
 
-          <div className="highlight-box">
-            The grand Ram Mandir in Ayodhya was inaugurated on January 22, 2024,
-            by the Prime Minister of India.
-          </div>
+        <div className="home-content">
+          <h2>
+            Every Journey Is <span>Tailored Around You</span>
+          </h2>
+          <p>
+            From serene island escapes to mountain hideaways, we design experiences
+            that reflect your pace, your passions, and your sense of wonder.
+          </p>
+          <p>
+            Whether you’re drawn to golden beaches, vibrant cities, or quiet
+            countryside, every detail is crafted to make your story feel effortless
+            and deeply personal.
+          </p>
+          <p>
+            Because when intention meets imagination, travel becomes more than a
+            journey — it becomes a feeling.
+          </p>
         </div>
-      </div>
 
-      {/* Section 2: About Lord Rama */}
-      <div className="container reverse">
-        <div className="image-section">
+        <div className="home-image-right">
           <img
-            src={`${process.env.PUBLIC_URL}/assets/images/rama_god.jpg`}
-            alt="Lord Rama Image"
+            src="https://images.unsplash.com/photo-1506744038136-46273834b3fb"
+            alt="Boat Dock"
           />
         </div>
-        <div className="text-section">
-          <h2>About Lord Rama</h2>
-          <h1>The Eternal Symbol of Dharma</h1>
-          <p>
-            Lord Rama, the seventh incarnation of Lord Vishnu, is worshipped as
-            the embodiment of truth, virtue, and righteousness. His story is
-            immortalized in the ancient epic <em>Ramayana</em>, where he is
-            portrayed as the ideal son, husband, and king. Rama’s unwavering
-            commitment to dharma (righteousness) and his compassion for all
-            beings make him a timeless guide for humanity.
-          </p>
-          <p>
-            His life journey—from his childhood in Ayodhya, to his exile in the
-            forest, his battle with Ravana, and his return as the victorious
-            ruler—symbolizes the triumph of good over evil. Across generations
-            and cultures, Lord Rama is revered as an eternal source of
-            inspiration, devotion, and moral strength.
-          </p>
-          <div className="highlight-box">
-            The festival of Ram Navami is celebrated with devotion across India
-            to mark the divine birth of Lord Rama.
-          </div>
-        </div>
-      </div>
+      </section>
 
-      {/* Why Choose Us */}
+      {/* ================= WHY CHOOSE US ================= */}
       <section className="why-choose">
         <h2>Why Travel With Holyway?</h2>
         <div className="features">
           <div className="feature">
-            <div className="icon">✨</div>
-            <h3>Spiritual Guidance</h3>
+            <div className="icon">🌍</div>
+            <h3>All Types of Trips</h3>
             <p>
-              We specialize in heritage and temple tours, ensuring every trip is
-              spiritually fulfilling.
+              From spiritual journeys and family vacations to adventure getaways and corporate tours — we plan every kind of trip with care and precision.
             </p>
           </div>
           <div className="feature">
             <div className="icon">🚌</div>
-            <h3>Comfortable Travel</h3>
+            <h3>Comfortable & Hassle-Free Travel</h3>
             <p>
-              Luxury Traveller, personalized packages, and hassle-free
-              arrangements for your peace of mind.
+              Enjoy luxury vehicles, well-designed itineraries, and seamless arrangements that make your travel smooth and worry-free.
             </p>
           </div>
-          <div className="feature">
-            <div className="icon">📖</div>
-            <h3>Rich History</h3>
-            <p>
-              Learn the stories and legends of Ayodhya and other sacred
-              destinations with our expert guides.
-            </p>
-          </div>
+       <div className="feature">
+  <div className="icon">✨</div>
+  <h3>Passionate Travel Experts</h3>
+  <p>
+    Our young and energetic team brings creativity, enthusiasm, and attention to detail to make your travel experience truly special.
+  </p>
+</div>
+
         </div>
       </section>
 
-      {/* Popular Tours */}
+      {/* ================= POPULAR TOURS ================= */}
       <section className="highlights">
-        <h2>Popular Heritage Tours</h2>
-        <div className="cards">
-          <div className="card fade-in">
-            <img
-              src={`${process.env.PUBLIC_URL}/assets/images/Ayodhya-Ram-Mandir.jpg`}
-              alt="Ram Mandir"
-            />
-            <h3>Ayodhya Ram Mandir</h3>
-            <p>
-              Witness the majestic Ram Mandir, the heart of Hindu faith and
-              devotion.
-            </p>
-          </div>
-          <div className="card fade-in">
-            <img
-              src={`${process.env.PUBLIC_URL}/assets/images/Hanuman_Garhi.avif`}
-              alt="Hanuman Garhi"
-            />
-            <h3>Hanuman Garhi</h3>
-            <p>
-              Experience divine blessings at Hanuman Garhi, the fortress-like
-              temple of Lord Hanuman.
-            </p>
-          </div>
-          <div className="card fade-in">
-            <img
-              src={`${process.env.PUBLIC_URL}/assets/images/kanak-bhavan.jpg`}
-              alt="Kanak Bhavan"
-            />
-            <h3>Kanak Bhavan</h3>
-            <p>
-              Visit the sacred palace where Sita and Ram lived after their
-              marriage, known as Kanak Bhavan.
-            </p>
-          </div>
+        <h2>Discover Incredible Journeys</h2>
+        <div className="scroll-container">
+          <button className="scroll-btn left" onClick={() => scroll("left")}>
+            <ChevronLeft size={28} />
+          </button>
+
+        <div className="cards" ref={scrollRef}>
+  {[
+    {
+      img: "spiritual-tour.jpg",
+      title: "Spiritual Escapes",
+      text:
+        "Reconnect with your inner peace through divine destinations, soulful experiences, and guided heritage tours.",
+    },
+    {
+      img: "beach-vacation.jpg",
+      title: "Relax & Rejuvenate",
+      text:
+        "Lounge by pristine beaches or unwind in scenic hill stations — perfect for calm, refreshing getaways.",
+    },
+    {
+      img: "adventure-trip.jpg",
+      title: "Adventure Awaits",
+      text:
+        "Trek through mountains, dive into adventure sports, or explore offbeat paths for an adrenaline rush.",
+    },
+    {
+      img: "family-trip.jpg",
+      title: "Family Holidays",
+      text:
+        "Enjoy well-planned, safe, and fun-filled family trips that everyone — from kids to grandparents — will love.",
+    },
+    {
+      img: "honeymoon-trip.jpg",
+      title: "Romantic Getaways",
+      text:
+        "Celebrate love with tailor-made honeymoon packages at breathtaking destinations across India and beyond.",
+    },
+    {
+      img: "international-tour.jpg",
+      title: "Global Adventures",
+      text:
+        "Discover the world — explore iconic cities, hidden gems, and cultures across international destinations.",
+    },
+  ].map((card, i) => (
+    <div className="card fade-in" key={i}>
+      <img
+        src={`${process.env.PUBLIC_URL}/assets/images/${card.img}`}
+        alt={card.title}
+        className="card-img"
+      />
+      <h3>{card.title}</h3>
+      <p>{card.text}</p>
+    </div>
+  ))}
+</div>
+
+
+          <button className="scroll-btn right" onClick={() => scroll("right")}>
+            <ChevronRight size={28} />
+          </button>
         </div>
       </section>
 
-      {/* Package & Itinerary */}
-      <div className="package-container">
+      {/* ================= PACKAGE & ITINERARY ================= */}
+      {/* <div className="package-container">
         <section className="overview">
           <h2>Package Overview</h2>
           <p>
@@ -349,33 +356,30 @@ const Home = () => {
             </div>
           ))}
         </section>
-      </div>
+      </div> */}
 
-      {/* Gallery */}
+      {/* ================= GALLERY ================= */}
       <section className="gallery">
         <h2>Gallery</h2>
         <div className="gallery-grid">
-          <img
-            src={`${process.env.PUBLIC_URL}/assets/images/Ayodhya-Saryu-Ghat.png`}
-            alt="Ayodhya Ghat"
-          />
-          <img
-            src={`${process.env.PUBLIC_URL}/assets/images/ayodya_diwali.jpg`}
-            alt="Ayodhya Diwali"
-          />
-          <img
-            src={`${process.env.PUBLIC_URL}/assets/images/temple.jpg`}
-            alt="Temples"
-          />
-          <img
-            src={`${process.env.PUBLIC_URL}/assets/images/ram_mandir.jpg`}
-            alt="Ram Mandir Model"
-          />
+          {[
+            "gallery1.jpg",
+            "gallery2.jpg",
+            "gallery3.jpg",
+            "gallery4.jpg",
+           
+          ].map((img, i) => (
+            <img
+              key={i}
+              src={`${process.env.PUBLIC_URL}/assets/images/${img}`}
+              alt={img.split(".")[0]}
+            />
+          ))}
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="testimonials">
+      {/* ================= TESTIMONIALS ================= */}
+      {/* <section className="testimonials">
         <h2>What Our Travelers Say</h2>
         <div className="testimonial-list">
           <div className="testimonial">
@@ -393,28 +397,29 @@ const Home = () => {
             <h4>- Rajesh Kumar</h4>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* FAQ */}
+      {/* ================= FAQ ================= */}
       <section className="faq">
-        <h2>Frequently Asked Questions</h2>
-        <div className="faq-container">
-          {faqs.map((faq, index) => (
-            <div className="faq-item" key={index}>
-              <button className="faq-question" onClick={() => toggleFAQ(index)}>
-                {faq.question}
-                <span className="icon">{openFAQ === index ? "−" : "+"}</span>
-              </button>
-              <div className={`faq-answer ${openFAQ === index ? "open" : ""}`}>
-                <p>{faq.answer}</p>
-              </div>
-            </div>
-          ))}
+  <h2>Frequently Asked Questions</h2>
+  <div className="faq-container">
+    {faqs.map((faq, index) => (
+      <div className="faq-item" key={index}>
+        <button
+          className="faq-question"
+          onClick={() => toggleFAQ(index)}
+        >
+          {faq.question}
+          <span className="icon">{openFAQ === index ? "−" : "+"}</span>
+        </button>
+        <div className={`faq-answer ${openFAQ === index ? "open" : ""}`}>
+          <p>{faq.answer}</p>
         </div>
-      </section>
-      
-    </>
       </div>
+    ))}
+  </div>
+</section>
+    </div>
   );
 };
 

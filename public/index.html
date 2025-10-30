@@ -2,10 +2,42 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#ff9933" />
-  <!-- Google Fonts -->
+
+    <!-- =======================
+         Favicon & App Icons
+    ======================== -->
+    <!-- Standard Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="%PUBLIC_URL%/assets/images/logo_without_name.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="%PUBLIC_URL%/assets/images/logo_without_name.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="%PUBLIC_URL%/assets/images/logo_without_name.png"
+    />
+    <!-- For iOS (Apple Touch Icon) -->
+    <link
+      rel="apple-touch-icon"
+      href="%PUBLIC_URL%/assets/images/logo_without_name.png"
+    />
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!-- =======================
+         Google Fonts
+    ======================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,27 +45,39 @@
       rel="stylesheet"
     />
 
-
-    <!-- SEO Meta -->
-    <meta name="description" content="Holyway Travels — Explore Ayodhya and other India's Hindu heritage sites, temples, and sacred destinations with curated travel packages." />
-    <meta name="keywords" content="Ayodhya travel, Hindu heritage travel, India temples tour, pilgrimage trips, spiritual tourism, Holyway Travels" />
+    <!-- =======================
+         SEO Meta Tags
+    ======================== -->
+    <meta
+      name="description"
+      content="Holyway Travels — Explore Ayodhya and other India's Hindu heritage sites, temples, and sacred destinations with curated travel packages."
+    />
+    <meta
+      name="keywords"
+      content="Ayodhya travel, Hindu heritage travel, India temples tour, pilgrimage trips, spiritual tourism, Holyway Travels"
+    />
     <meta name="author" content="Holyway Travels" />
     <meta name="robots" content="index, follow" />
 
-    <!-- Open Graph / Social Sharing -->
-    <meta property="og:title" content="Holyway Travels — Ayodhya & Hindu Heritage Tours" />
-    <meta property="og:description" content="Discover Ayodhya and India's sacred sites with Holyway Travels. Curated pilgrimages and cultural journeys await you." />
+    <!-- =======================
+         Open Graph / Social Sharing
+    ======================== -->
+    <meta
+      property="og:title"
+      content="Holyway Travels — Ayodhya & Hindu Heritage Tours"
+    />
+    <meta
+      property="og:description"
+      content="Discover Ayodhya and India's sacred sites with Holyway Travels. Curated pilgrimages and cultural journeys await you."
+    />
     <meta property="og:image" content="%PUBLIC_URL%/social-preview.png" />
     <meta property="og:url" content="https://www.holywaytravels.com/" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- App Icons -->
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-
     <title>Holyway Travels — Ayodhya & Hindu Heritage Tours</title>
   </head>
+
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>

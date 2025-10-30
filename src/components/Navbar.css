@@ -2,37 +2,88 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {  line-height: 1.6; color: #333; overflow-x: hidden; }
 
-.company-name {
-  font-family: "Playfair Display", serif;
-  font-weight: 700;           /* Bold like the image */
-  font-style: normal;
-  font-size: 2.6rem;
-  color: #ffffff;
-  margin: 0;
-  line-height: 1.1;
-  letter-spacing: 0.5px;
-  white-space: nowrap;
+.navbar-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  line-height: 1.2;
 }
 
-.company-slogan {
-  font-weight: 400;
-  font-size: 1.3rem;
-  color: #ffeb3b;
-  margin-top: 0.3rem;
-  white-space: nowrap;
+/* Logo + Text inline */
+.logo-with-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px; /* small gap between logo and "Travels" */
+}
+.company-logo {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+
+  /* visually enlarge logo without affecting layout box */
+  transform: scale(1.9);        /* increase size */
+  transform-origin: center center;
+
+  pointer-events: none;
+  display: block;
+  max-width: none;
+
+  position: relative;
+  z-index: 5;
+
+  /* Pull it back slightly to stay centered and prevent scrollbar */
+  margin-left: -10px;
+  margin-top: -5px;
 }
 
-@media (max-width: 600px) {
-  .company-name {
-    font-size: 1.8rem;
+.navbar-center {
+  position: absolute;
+  top: 50%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  line-height: 1.2;
+
+  /* Prevent image overflow from causing scroll */
+  overflow: hidden;
+  width: 180px;      /* ✅ set a fixed box width */
+  height: 80px;      /* ✅ same height as navbar */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.company-text {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #333;
+}
+
+
+/* Responsive */
+@media (max-width: 992px) {
+  .navbar {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
   }
 
-  .company-slogan {
-    font-size: 1rem;
+  .navbar-center {
+    position: static;
+    transform: none;
+    margin-top: 8px;
+  }
+
+  .company-logo {
+    height: 35px;
   }
 }
 
 /* ===================== NAVBAR ===================== */
+
 .navbar-container {
   position: absolute;
   top: 5px;
@@ -52,10 +103,11 @@ body {  line-height: 1.6; color: #333; overflow-x: hidden; }
 
 .navbar,
 .navbar-right {
-  background-color: rgba(43, 33, 31, 0.85);
+  background-color:transparent;
   border-radius: 8px;
   backdrop-filter: blur(4px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  height: 95px;
 }
 
 /* ✅ Main navbar layout */
@@ -98,13 +150,7 @@ html {
     min-height: auto;
   }
 
-  .navbar-right {
-    width: 100%;
-    padding: 10px;
-    min-height: auto;
-    margin-top: 8px;
-    justify-content: center;
-  }
+  
 }
 
 
@@ -117,12 +163,7 @@ html {
   letter-spacing: 0.3px;
 }
 
-.divider {
-  width: 1px;
-  height: 40px;
-  background-color: rgba(255,255,255,0.3);
-  margin: 0 20px;
-}
+
 
 .navbar-links {
   display: flex;
@@ -142,13 +183,6 @@ html {
   color: #d4a373;
 }
 
-.navbar-right {
-  text-align: center;
-  padding: 10px 22px;
-  display: flex;
-  justify-content: center; /* center horizontally */
-  align-items: center;     /* center vertically */
-}
 
 .navbar-right button {
   background: none;
@@ -158,10 +192,28 @@ html {
   letter-spacing: 2px;
   cursor: pointer;
 }
+/* Default (for laptop/desktop) */
+.company-logo {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+  pointer-events: none;
+  display: block;
+}
+
+/* Mobile only */
+@media (max-width: 768px) {
+  .company-logo {
+    transform: scale(1.6);
+    transform-origin: center center;
+    max-width: none;
+    margin-left: -25px; /* shift slightly left to recenter */
+  }
+}
 
 /* Menu Button */
 .menu-btn {
-  background-color: rgba(43, 33, 31, 0.85);
+  background-color:transparent;
   border: 1px solid rgba(255,255,255,0.15);
   color: #f1ede9;
   border-radius: 8px;
@@ -224,7 +276,6 @@ html {
 .mobile-menu {
   display: none;
   flex-direction: column;
-  background-color: rgba(43, 33, 31, 0.95);
   border-radius: 8px;
   margin: 5px;
   padding: 15px 20px;
@@ -249,7 +300,7 @@ html {
 
 /* Mobile Get Started */
 .mobile-getstarted {
-  background-color: rgba(43, 33, 31, 0.85);
+  background-color: black;
   border-radius: 8px;
   padding: 12px;
   text-align: center;

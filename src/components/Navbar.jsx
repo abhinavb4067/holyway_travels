@@ -19,31 +19,28 @@ const Navbar = () => {
   return (
     <div className="navbar-container">
       <nav className="navbar">
-        <div className="navbar-left">
-          <img
-            src={`${process.env.PUBLIC_URL}/assets/images/logo_without_name.png`}
-            alt="Logo"
-            className="navbar-logo"
-          />
-<div className="navbar-title">
-  <h3 className="company-name">Holyway Travels</h3>
-  <p className="company-slogan">Creating divine memories...</p>
+  <div className="navbar-left">
+    <div className="navbar-links">
+      <Link to="/" className="nav-link">Home</Link>
+      <Link to="/about" className="nav-link">About</Link>
+      <Link to="/contact" className="nav-link">Contact</Link>
+    </div>
+  </div>
+
+ <div className="navbar-center">
+  <div className="logo-with-text">
+    <img
+      src={`${process.env.PUBLIC_URL}/assets/images/logo_without_bg1.png`}
+      alt="Holyway Travels"
+      className="company-logo"
+    />
+    {/* <span className="company-text">Travels</span> */}
+  </div>
 </div>
 
 
+</nav>
 
-
-
-
-          <div className="divider"></div>
-
-          <div className="navbar-links">
-            <Link to="/" className="nav-link">Home</Link>
-            <Link to="/about" className="nav-link">About</Link>
-            <Link to="/contact" className="nav-link">Contact</Link>
-          </div>
-        </div>
-      </nav>
 
       <div className="navbar-right">
         <button onClick={() => navigate("/")}>GET STARTED</button>

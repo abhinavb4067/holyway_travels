@@ -30,7 +30,7 @@ const About = () => {
       <div
         className="page-header"
         style={{
-backgroundImage: `url(${process.env.PUBLIC_URL}/assets/images/about_us.jpg)`,
+          backgroundImage: `url(${process.env.PUBLIC_URL}/assets/images/about_us.jpg)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -48,38 +48,44 @@ backgroundImage: `url(${process.env.PUBLIC_URL}/assets/images/about_us.jpg)`,
       <div className="about-container">
         {/* Image with animation */}
         <div className="about-image" ref={imageRef}>
-<img src={`${process.env.PUBLIC_URL}/assets/images/logo.jpg`} alt="Logo" />
+          <img src={`${process.env.PUBLIC_URL}/assets/images/logo.jpg`} alt="Logo" />
         </div>
 
         {/* Text with fade-in */}
         <div className="content" ref={contentRef}>
-          <h2>About Holyway Travels</h2>
+          <h2>Our Vision</h2>
           <p>
-            <strong>Holyway Travels</strong> is a dedicated travel agency based
-            in India, created to connect people with the divine heritage of
-            Hindu culture. Our journey began with the vision of providing
-            authentic spiritual experiences to devotees, pilgrims, and explorers
-            from all walks of life.
+            At <strong>Holyway Travels</strong>, we envision a world where every journey becomes
+            a soulful experience — connecting people to places, cultures, and themselves.
+            We aim to redefine travel as a path of discovery, reflection, and meaningful connection.
           </p>
           <p>
-            We specialize in organizing tours to the most sacred temples and
-            heritage sites across India, starting with <em>Ayodhya</em>, the
-            birthplace of Lord Ram. Our goal is to create a seamless blend of
-            spirituality, comfort, and cultural immersion. Whether you are
-            seeking blessings, exploring history, or experiencing the festivals
-            of India, Holyway Travels ensures every journey becomes a soulful
-            memory.
+            Our goal is to inspire travelers to explore the world with purpose, gratitude, and
+            a sense of wonder — creating stories that stay in the heart long after the journey ends.
+          </p>
+
+          <h2>Our Mission</h2>
+          <p>
+            At Holyway Travels, our mission is to make travel seamless, soulful, and unforgettable.
+            We strive to craft journeys that blend comfort, authenticity, and adventure —
+            guided by care, trust, and a personal touch.
           </p>
           <p>
-            With professional guides, curated itineraries, and a passion for
-            service, we strive to make your pilgrimage meaningful and
-            unforgettable. At HolyWay Travels, it’s not just about visiting
-            places – it’s about walking on a <em>holy way</em> towards peace and
-            devotion.
+            Through thoughtful planning and heartfelt service, we aim to help travelers discover
+            the beauty of the world — and the peace within — one trip at a time.
           </p>
+
+          <h2>Our Values</h2>
+          <ul>
+            <li><strong>Authenticity</strong> — Travel that reflects the true spirit of every destination.</li>
+            <li><strong>Connection</strong> — Building bridges between people, cultures, and communities.</li>
+            <li><strong>Trust</strong> — Creating journeys travelers can rely on and remember.</li>
+            <li><strong>Exploration</strong> — Inspiring curiosity and the joy of discovery.</li>
+            <li><strong>Sustainability</strong> — Traveling responsibly to preserve the world's beauty.</li>
+            <li><strong>Joy</strong> — Celebrating life through every journey, big or small.</li>
+          </ul>
         </div>
       </div>
-      
     </section>
   );
 };
