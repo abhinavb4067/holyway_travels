@@ -48,7 +48,7 @@ const About = () => {
       <div className="about-container">
         {/* Image with animation */}
         <div className="about-image" ref={imageRef}>
-          <img src={`${process.env.PUBLIC_URL}/assets/images/logo.jpg`} alt="Logo" />
+          <img src={`${process.env.PUBLIC_URL}/assets/images/4444.png`} alt="Logo" />
         </div>
 
         {/* Text with fade-in */}
