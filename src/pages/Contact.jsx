@@ -56,22 +56,24 @@ const Contact = () => {
           +91 80890 57655
         </a>
       </li>
-      <li className="whatsapp-text">
-        <a
-          href="https://wa.me/918089057655"
-          target="_blank"
-          rel="noreferrer"
-          className="whatsapp-link"
-        >
-         <img
-  src={`${process.env.PUBLIC_URL}/assets/images/whtsp.png`}
-  alt="WhatsApp"
-  className="whatsapp-icon"
-/>
+     <li className="whatsapp-text">
+  <a
+    href={`https://wa.me/918089057655?text=${encodeURIComponent(
+      "Hi! I would like to know more about your travel packages."
+    )}`}
+    target="_blank"
+    rel="noreferrer"
+    className="whatsapp-link"
+  >
+    <img
+      src={`${process.env.PUBLIC_URL}/assets/images/whtsp.png`}
+      alt="WhatsApp"
+      className="whatsapp-icon"
+    />
+    WhatsApp <span className="plain-number">+91 80890 57655</span>
+  </a>
+</li>
 
-          WhatsApp <span className="plain-number">+91 80890 57655</span>
-        </a>
-      </li>
       <li className="black-text">
         📧 Email:{" "}
         <a href="mailto:info@holywaytravels.com" className="plain-number">

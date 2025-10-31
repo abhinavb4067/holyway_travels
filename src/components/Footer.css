@@ -1,16 +1,80 @@
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #2b211f;
+.footer {
+  background-color: #000;
   color: #f4f0eb;
+  padding: 50px 30px 25px;
+  text-align: center;
   font-family: 'Georgia', serif;
 }
 
-footer a {
+/* ===== MAIN GRID LAYOUT ===== */
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+  justify-items: center;
+  align-items: start;
+  margin-bottom: 35px;
+}
+
+/* ===== BRAND SECTION ===== */
+.footer-logo {
+  width: 450px;
+  height: auto;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 0 8px rgba(255, 165, 0, 0.4));
+}
+
+.footer-section h3 {
+  color: rgb(67, 64, 58);
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+.footer-section h4 {
+ color: rgb(135, 132, 128);
+
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.footer-section p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #f4f0eb;
+}
+
+/* ====== FOOTER BOTTOM ====== */
+.footer-bottom {
+  border-top: 1px solid #333;
+  padding-top: 15px;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.footer-bottom a {
   color: orange;
   text-decoration: none;
 }
 
-footer a:hover {
+.footer-bottom a:hover {
   text-decoration: underline;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 600px) {
+  .footer {
+    padding: 40px 20px;
+  }
+
+  .footer-section h3,
+  .footer-section h4 {
+    font-size: 1.1rem;
+  }
+
+  .footer-section p {
+    font-size: 0.95rem;
+  }
 }

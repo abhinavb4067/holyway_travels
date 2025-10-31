@@ -163,180 +163,186 @@ body {
 =============================== */
 .home-section {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f7f3ec;
-  overflow: hidden;
+  background-color: #f8f4ef;
   min-height: 100vh;
-  padding: 0;
+  overflow: visible;
+  display: block;
 }
 
-/* Left Large Image */
+/* Left scenic image (behind everything) */
 .home-image-left {
   position: absolute;
   top: 0;
   left: 0;
-  width: 70vw;
-  height: 100%;
+  width: 60vw;
+  height: 100vh;
   overflow: hidden;
+  z-index: 0;
 }
 
 .home-image-left img {
-  width: 100%;
+  width: 80%;
   height: 100%;
   object-fit: cover;
-  border-radius: 0;
+  object-position: center center;
   display: block;
 }
 
-/* Text Block */
-.home-content {
+/* Content locator */
+.home-content-locate {
   position: absolute;
-  max-width: 820px;
-  background: #fff;
-  padding: 3rem 3.5rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  top: 50%;
-  left: 40%;
-  transform: translate(-10%, -50%);
+  top: 8vh;
+  left: 38vw;
+  width: 44vw;
+  z-index: 3; /* ✅ higher than right image */
+  pointer-events: auto;
+  transform: translateX(-6%);
 }
 
+/* White content card */
+.home-content {
+  background: #fff;
+  padding: 4.5rem 4rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  border-radius: 6px;
+  color: #111;
+  font-family: "Inter", sans-serif;
+  position: relative;
+  z-index: 3; /* ✅ ensures text stays above hill image */
+}
+
+/* Typography */
 .home-content h2 {
-  font-size: 2.2rem;
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  line-height: 1.05;
+  margin: 0 0 1.25rem 0;
   font-weight: 600;
-  color: #1a1a1a;
-  margin-bottom: 1rem;
-  line-height: 1.2;
+  color: #0f0f0f;
 }
 
 .home-content h2 span {
   font-style: italic;
-  color: #2a2a2a;
+  font-weight: 500;
+}
+
+.home-content h2 em {
+  font-style: italic;
 }
 
 .home-content p {
+  margin: 0 0 1rem 0;
+  line-height: 1.7;
+  color: #333;
   font-size: 1rem;
-  color: #444;
-  line-height: 1.6;
-  margin-bottom: 1rem;
 }
 
-/* Small Image Bottom Right */
+/* ✅ FIXED: hill image visually overlaps but stays behind text */
 .home-image-right {
   position: absolute;
-  bottom: 2rem;
-  right: 6rem;
-  width: 300px;
-  border-radius: 8px;
+  right: 4rem;
+  bottom: -60px;
+  width: 360px;
+  height: 250px;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.18);
+  z-index: 2; /* ✅ lower than content, so text is always visible */
+  pointer-events: none;
+}
+
+.home-image-right::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
+  opacity: 0.3;
+  pointer-events: none;
 }
 
 .home-image-right img {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%;
   object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 10px;
 }
 
-/* ✅ Responsive for Tablets */
-@media (max-width: 1024px) {
+/* --------------------
+   RESPONSIVE ADJUST
+   -------------------- */
+@media (max-width: 1200px) {
   .home-image-left {
-    width: 100vw;
-    opacity: 0.9;
+    width: 58vw;
   }
-
-  .home-content {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 2rem;
-    margin: 2rem;
-    box-shadow: none;
-    width: 85%;
-  }
-
-  .home-content h2 {
-    font-size: 1.8rem;
-  }
-
-  .home-content p {
-    font-size: 0.95rem;
-  }
-
-  .home-image-right {
-    position: relative;
-    bottom: auto;
-    right: auto;
-    margin: 2rem auto;
-    width: 70%;
+  .home-content-locate {
+    left: 50vw;
+    width: 44vw;
+    transform: translateX(-8%);
   }
 }
 
-/* ✅ Responsive for Mobile */
-@media (max-width: 768px) {
-  .home-section {
-    flex-direction: column;
-    min-height: auto;
-    padding-bottom: 2rem;
-  }
-
+@media (max-width: 1024px) {
   .home-image-left {
     position: relative;
     width: 100%;
-    height: 250px;
+    height: 56vh;
   }
 
-  .home-content {
+  .home-image-left img {
+    width: 100% !important;
+  }
+
+  .home-content-locate {
     position: relative;
     top: auto;
     left: auto;
-    transform: none;
     width: 90%;
-    margin: 1.5rem auto;
-    padding: 1.5rem;
-    background: #fff;
+    margin: -8vh auto 0 auto;
+    transform: none;
+    margin-top: 4%;
+    z-index: 3;
+  }
+
+  .home-content {
+    padding: 3rem 2.25rem;
     box-shadow: none;
   }
 
-  .home-content h2 {
-    font-size: 1.5rem;
-    text-align: center;
+  .home-image-right {
+    position: absolute;
+    right: 2rem;
+    bottom: -40px;
+    width: 300px;
+    height: 200px;
+    z-index: 2;
   }
+}
 
-  .home-content p {
-    font-size: 0.9rem;
-    text-align: center;
-  }
-
+@media (max-width: 768px) {
   .home-image-right {
     position: relative;
     bottom: auto;
     right: auto;
+    margin: 2rem auto -2rem auto;
     width: 80%;
-    margin: 1rem auto 0 auto;
+    height: 200px;
+    z-index: 2;
   }
 }
 
-/* ✅ For very small screens (phones < 480px) */
 @media (max-width: 480px) {
-  .home-image-left {
-    height: 200px;
-  }
-
   .home-content h2 {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
   }
-
-  .home-content p {
-    font-size: 0.85rem;
+  .home-content {
+    padding: 1.5rem;
   }
-
   .home-image-right {
+    height: 160px;
     width: 90%;
+    margin-top: 1rem;
   }
 }
 

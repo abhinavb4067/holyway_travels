@@ -194,40 +194,45 @@ const Home = () => {
       </section>
 
       {/* ================= ABOUT SECTION ================= */}
-      <section className="home-section">
-        <div className="home-image-left">
-          <img
-            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
-            alt="Coastal View"
-          />
-        </div>
+    <section className="home-section">
+  <div className="home-image-left">
+    <img
+      src={`${process.env.PUBLIC_URL}/assets/images/beach1.jpg`}
+      alt="Beach View"
+    />
+  </div>
 
-        <div className="home-content">
-          <h2>
-            Every Journey Is <span>Tailored Around You</span>
-          </h2>
-          <p>
-            From serene island escapes to mountain hideaways, we design experiences
-            that reflect your pace, your passions, and your sense of wonder.
-          </p>
-          <p>
-            Whether you’re drawn to golden beaches, vibrant cities, or quiet
-            countryside, every detail is crafted to make your story feel effortless
-            and deeply personal.
-          </p>
-          <p>
-            Because when intention meets imagination, travel becomes more than a
-            journey — it becomes a feeling.
-          </p>
-        </div>
+  {/* content locator — positions the content above the left image */}
+  <div className="home-content-locate">
+    <div className="home-content">
+      <h2>
+        Where Every Detail is <span>Designed</span> Around <em>You</em>
+      </h2>
+      <p>
+        From cliffside villas on the Amalfi Coast to overwater bungalows in Bora Bora,
+        Holyway Travels curates more than trips — we craft soulful escapes. Each journey
+        is tailor-made to reflect your desires, your pace, your dreams.
+      </p>
+      <p>
+        Whether you’re chasing sun-drenched coastlines, hidden city gems, or a quiet
+        corner of the world to just <em>be</em>, we’re here to make every moment feel
+        effortless, elegant, and deeply personal.
+      </p>
+      <p>
+        Because when every detail is intentional, travel becomes more than a standard —
+        it becomes a feeling.
+      </p>
+    </div>
+  </div>
 
-        <div className="home-image-right">
-          <img
-            src="https://images.unsplash.com/photo-1506744038136-46273834b3fb"
-            alt="Boat Dock"
-          />
-        </div>
-      </section>
+  <div className="home-image-right">
+    <img
+      src={`${process.env.PUBLIC_URL}/assets/images/hill.jpg`}
+      alt="Yacht or City View"
+    />
+  </div>
+</section>
+
 
       {/* ================= WHY CHOOSE US ================= */}
       <section className="why-choose">

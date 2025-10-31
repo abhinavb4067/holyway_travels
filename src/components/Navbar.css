@@ -1,89 +1,8 @@
 /* RESET */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body {  line-height: 1.6; color: #333; overflow-x: hidden; }
+body { line-height: 1.6; color: #333; overflow-x: hidden; }
 
-.navbar-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  line-height: 1.2;
-}
-
-/* Logo + Text inline */
-.logo-with-text {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px; /* small gap between logo and "Travels" */
-}
-.company-logo {
-  height: 80px;
-  width: auto;
-  object-fit: contain;
-
-  /* visually enlarge logo without affecting layout box */
-  transform: scale(1.9);        /* increase size */
-  transform-origin: center center;
-
-  pointer-events: none;
-  display: block;
-  max-width: none;
-
-  position: relative;
-  z-index: 5;
-
-  /* Pull it back slightly to stay centered and prevent scrollbar */
-  margin-left: -10px;
-  margin-top: -5px;
-}
-
-.navbar-center {
-  position: absolute;
-  top: 50%;
-  left: 52%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  line-height: 1.2;
-
-  /* Prevent image overflow from causing scroll */
-  overflow: hidden;
-  width: 180px;      /* ✅ set a fixed box width */
-  height: 80px;      /* ✅ same height as navbar */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.company-text {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #333;
-}
-
-
-/* Responsive */
-@media (max-width: 992px) {
-  .navbar {
-    flex-direction: column;
-    gap: 8px;
-    text-align: center;
-  }
-
-  .navbar-center {
-    position: static;
-    transform: none;
-    margin-top: 8px;
-  }
-
-  .company-logo {
-    height: 35px;
-  }
-}
-
-/* ===================== NAVBAR ===================== */
-
+/* ===================== NAVBAR CORE ===================== */
 .navbar-container {
   position: absolute;
   top: 5px;
@@ -94,66 +13,76 @@ body {  line-height: 1.6; color: #333; overflow-x: hidden; }
   gap: 6px;
   justify-content: space-between;
   padding: 0 5px;
-  z-index: 1000; /* keeps navbar above all other content */
-}
-
-* {
-  box-sizing: border-box;
+  z-index: 1000;
 }
 
 .navbar,
 .navbar-right {
-  background-color:transparent;
+  background-color: transparent;
   border-radius: 8px;
   backdrop-filter: blur(4px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   height: 95px;
 }
 
-/* ✅ Main navbar layout */
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
-  min-height: 80px; /* Same height on desktop */
   width: 100%;
   overflow-x: hidden;
 }
 
-/* ✅ Right section */
 .navbar-right {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 10px 22px;
-  min-height: 88px; /* Match height */
   flex-shrink: 0;
 }
 
-/* ✅ Prevent any scroll issues */
-body,
-html {
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
-  width: 100%;
+/* ===================== LOGO CENTER ===================== */
+.navbar-center {
+  position: absolute;
+  top: 50%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  overflow: hidden;
+  width: 500px; /* Increased width box for 3x scale */
+  height: 95px; /* Match navbar height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* ✅ Responsive layout */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 16px;
-    min-height: auto;
-  }
-
-  
+/* Logo + Text inline */
+.logo-with-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* ✅ Enlarged Logo — 3x visually larger without affecting layout */
+.company-logo {
+  height: 80px;
+  object-fit: contain;
+  pointer-events: none;
+  display: block;
 
+  transform: scale(3); /* 🚀 3× width/size visually */
+  transform-origin: center center;
+  max-width: none;
+  position: relative;
+  z-index: 5;
+
+  /* keep perfectly centered visually */
+  margin-left: -30px;
+  margin-top: -8px;
+}
+
+/* ===================== LEFT LINKS ===================== */
 .navbar-left {
   display: flex;
   align-items: center;
@@ -162,8 +91,6 @@ html {
   font-size: 16px;
   letter-spacing: 0.3px;
 }
-
-
 
 .navbar-links {
   display: flex;
@@ -179,11 +106,9 @@ html {
   transition: color 0.2s ease;
 }
 
-.navbar-links a:hover {
-  color: #d4a373;
-}
+.navbar-links a:hover { color: #d4a373; }
 
-
+/* ===================== BUTTONS ===================== */
 .navbar-right button {
   background: none;
   border: none;
@@ -192,28 +117,10 @@ html {
   letter-spacing: 2px;
   cursor: pointer;
 }
-/* Default (for laptop/desktop) */
-.company-logo {
-  height: 80px;
-  width: auto;
-  object-fit: contain;
-  pointer-events: none;
-  display: block;
-}
 
-/* Mobile only */
-@media (max-width: 768px) {
-  .company-logo {
-    transform: scale(1.6);
-    transform-origin: center center;
-    max-width: none;
-    margin-left: -25px; /* shift slightly left to recenter */
-  }
-}
-
-/* Menu Button */
+/* ===================== MENU BUTTON ===================== */
 .menu-btn {
-  background-color:transparent;
+  background-color: transparent;
   border: 1px solid rgba(255,255,255,0.15);
   color: #f1ede9;
   border-radius: 8px;
@@ -254,14 +161,7 @@ html {
   border-radius: 50%;
   transition: opacity 0.3s ease;
 }
-.company-name {
-  white-space: nowrap;       /* ✅ never wrap to next line */
-  overflow: hidden;          /* ✅ hides any overflow */
-  text-overflow: ellipsis;   /* ✅ adds "..." if it’s too long */
-  font-size: clamp(1rem, 2vw, 1.8rem); /* ✅ responsive font size */
-}
 
-/* Active X icon */
 .menu-icon.active::before {
   transform: rotate(45deg);
   top: 9px;
@@ -272,7 +172,7 @@ html {
 }
 .menu-icon.active .menu-circle { opacity: 0; }
 
-/* Mobile Menu */
+/* ===================== MOBILE MENU ===================== */
 .mobile-menu {
   display: none;
   flex-direction: column;
@@ -294,21 +194,18 @@ html {
   letter-spacing: 2px;
   padding: 10px 0;
 }
-.mobile-menu a:hover {
-  color: #d4a373;
-}
+.mobile-menu a:hover { color: #d4a373; }
 
-/* Mobile Get Started */
 .mobile-getstarted {
   background-color: black;
   border-radius: 8px;
   padding: 12px;
   text-align: center;
   margin-top: 12px;
+  border: 1px solid;
   box-shadow: inset 0 0 2px rgba(255,255,255,0.05);
-    border: 1px solid;
-
 }
+
 .mobile-getstarted button {
   border: none;
   background: none;
@@ -323,25 +220,156 @@ html {
   from {opacity: 0; transform: translateY(-10px);}
   to {opacity: 1; transform: translateY(0);}
 }
-
-/* Default (Desktop) */
-.navbar-logo {
-  height: 36px;
-  width: auto;
-  margin-right: 10px;
-}
-
-/* Mobile (≤768px) */
+/* ===================== MOBILE NAVBAR ===================== */
 @media (max-width: 768px) {
-  .navbar-logo {
-    height: 24px;
+/* ===================== MOBILE NAVBAR (FULLSCREEN MENU) ===================== */
+@media (max-width: 768px) {
+  .navbar-links,
+  .navbar-right {
+    display: none;
+  }
+
+  .menu-btn {
+    display: block;
+    z-index: 1001;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+  /* Keep navbar blur and alignment */
+  .navbar-container {
+    position: absolute;
+    top: -10;
+    left: 0;
+    width: 100%;
+    overflow-x: hidden;
+    z-index: 1000;
+    background: transparent;
+  }
+
+  .navbar {
+    width: 100%;
+    background-color: transparent;
+    backdrop-filter: blur(4px);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: none;
+  }
+
+  /* Centered logo */
+  .navbar-center {
+    position: static;
+    transform: none;
+    width: 100%;
+    height: auto;
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Responsive logo */
+  .company-logo {
+    transform: none;
+    width: 85vw;
+    max-width: 420px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* ✅ Fullscreen mobile menu */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.5s ease-in-out, opacity 0.4s ease-in-out;
+  }
+
+  /* Show when menuOpen = true */
+  .mobile-menu[style*="flex"] {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  /* ❌ Close Button (top-right) */
+  .close-menu-btn {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    font-size: 2.5rem;
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 2100;
+    transition: color 0.3s ease;
+  }
+
+  .close-menu-btn:hover {
+    color: #ff9933;
+  }
+
+  /* Nav links inside menu */
+  .mobile-menu .nav-link {
+    color: #fff;
+    font-size: 1.8rem;
+    text-decoration: none;
+    margin: 18px 0;
+    transition: color 0.3s ease;
+  }
+
+  .mobile-menu .nav-link:hover {
+    color: #ff9933;
+  }
+
+  /* Get started button */
+  .mobile-getstarted {
+    margin-top: 35px;
+  }
+
+  .mobile-getstarted button {
+    background-color: #ff9933;
+    border: none;
+    padding: 14px 34px;
+    font-size: 1.1rem;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .mobile-getstarted button:hover {
+    background-color: #e57f00;
+  }
+
+  /* Prevent scroll when menu is open */
+  html,
+  body {
+    overflow-x: hidden !important;
+    width: 100%;
+    background-color: inherit;
+  }
+
+  * {
+    max-width: 100vw !important;
   }
 }
-
-
-/* Responsive */
-@media (max-width: 768px) {
-  .navbar-links, .navbar-right { display: none; }
-  .menu-btn { display: block; }
 }
-
