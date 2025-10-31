@@ -204,25 +204,24 @@ const Home = () => {
 
   {/* content locator — positions the content above the left image */}
   <div className="home-content-locate">
-    <div className="home-content">
-      <h2>
-        Where Every Detail is <span>Designed</span> Around <em>You</em>
-      </h2>
-      <p>
-        From cliffside villas on the Amalfi Coast to overwater bungalows in Bora Bora,
-        Holyway Travels curates more than trips — we craft soulful escapes. Each journey
-        is tailor-made to reflect your desires, your pace, your dreams.
-      </p>
-      <p>
-        Whether you’re chasing sun-drenched coastlines, hidden city gems, or a quiet
-        corner of the world to just <em>be</em>, we’re here to make every moment feel
-        effortless, elegant, and deeply personal.
-      </p>
-      <p>
-        Because when every detail is intentional, travel becomes more than a standard —
-        it becomes a feeling.
-      </p>
-    </div>
+   <div className="home-content">
+  <h2>
+    Every Journey is <span>Crafted</span> Exclusively <em>For You</em>
+  </h2>
+  <p>
+    From sun-kissed villas along the Amalfi cliffs to dreamy bungalows floating in Bora Bora,
+    Holyway Travels creates more than vacations — we design meaningful getaways.
+    Each experience is personally curated to mirror your passions, rhythm, and imagination.
+  </p>
+  <p>
+    Whether you long for golden coastlines, hidden urban wonders, or a serene corner of the world
+    to simply <em>breathe</em>, we ensure every moment unfolds effortlessly, gracefully, and uniquely yours.
+  </p>
+  <p>
+    Because when every touch is intentional, travel transforms from a plan into a beautiful emotion.
+  </p>
+</div>
+
   </div>
 
   <div className="home-image-right">

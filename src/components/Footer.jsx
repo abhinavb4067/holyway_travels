@@ -28,7 +28,7 @@ const Footer = () => {
           <p className="plain-number">
             Door No. 63/700, D Space,<br />
             Sky Tower, Mavoor Road Junction,<br />
-            Bank Road, Kozhikode - 673001
+            Bank Road, Kozhikode - 673001,Kerala,India
           </p>
         </div>
       </div>
