@@ -153,7 +153,7 @@ const Home = () => {
           {!videoLoaded && (
             <div className="video-preloader">
               <img
-                src={`${process.env.PUBLIC_URL}/assets/images/logo_without_bg1.png`}
+                src={`${process.env.PUBLIC_URL}/assets/images/3333.png`}
                 alt="Loading Holyway Travels"
                 className="preloader-logo"
               />
