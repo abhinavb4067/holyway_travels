@@ -1,8 +1,211 @@
 /* ===============================
    GLOBAL STYLES
 =============================== */
+/* === PACKAGES SECTION === */
+.packages {
+  padding: 60px 20px;
+  background: #fff;
+  text-align: center;
+  position: relative;
+}
+
+.packages h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+/* === Scroll Wrapper === */
+.scroll-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* === Cards container (horizontal scroll like highlights) === */
+.packages .cards {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
+}
+
+/* Hide scrollbar completely */
+.packages .cards::-webkit-scrollbar {
+  display: none;
+}
+.packages .cards {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* === Individual cards (apply same highlights style) === */
+.package-card {
+  flex: 0 0 320px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+.package-card:hover {
+  transform: translateY(-5px);
+}
+
+/* === Video inside card === */
+.package-card .card-video {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* === Text content === */
+.package-card h3 {
+  font-size: 1.2rem;
+  margin: 15px 0 10px;
+}
+
+.package-card p {
+  padding: 0 15px 20px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* === Scroll Buttons (styled like highlights) === */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  cursor: pointer;
+  padding: 0.6rem;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease, transform 0.3s ease;
+  z-index: 5;
+}
+
+.scroll-btn:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.scroll-btn.left {
+  left: 10px;
+}
+.scroll-btn.right {
+  right: 10px;
+}
+
+/* === Mobile view === */
+@media (max-width: 768px) {
+  .scroll-btn {
+    display: none !important;
+  }
+
+  .packages .cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow-x: visible;
+  }
+
+  .package-card {
+    width: 100%;
+  }
+}
 
 
+
+
+
+/* something uniqe plans */
+
+.dream-destination {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+}
+
+.dream-destination .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.dream-destination .content {
+  max-width: 800px;
+  text-align: center;
+  z-index: 2;
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+.dream-destination h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #ffcc70, #ff8177);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dream-destination p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  color: #f8f9fa;
+}
+
+.contact-btn {
+  background: linear-gradient(90deg, #ff8177, #ffcc70);
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 25px rgba(255, 193, 7, 0.4);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .dream-destination h2 {
+    font-size: 1.8rem;
+  }
+  .dream-destination p {
+    font-size: 1rem;
+  }
+}
+
+/* something uniqe plans */
 
 
 /* ==========================
@@ -164,99 +367,98 @@ body {
 .home-section {
   position: relative;
   background-color: #f8f4ef;
-  min-height: 100vh;
-  overflow: visible;
-  display: block;
+  height: auto;      /* let it expand naturally */
+  min-height: 100vh; /* keeps it tall on small content */
+  overflow: visible; /* allows stretched image to overflow */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Left scenic image (behind everything) */
+
+/* Left scenic image */
 .home-image-left {
   position: absolute;
   top: 0;
   left: 0;
-  width: 60vw;
+  width: 55vw; /* Reduced to give more room for content */
   height: 100vh;
   overflow: hidden;
-  z-index: 0;
+  z-index: 1;
+}
+
+.home-image-left::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.15); /* adds subtle dark overlay for readability */
 }
 
 .home-image-left img {
-  width: 80%;
+  width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center center;
-  display: block;
+  object-position: center bottom; /* shift focus to bottom */
+  transform-origin: bottom;       /* scaling from bottom */
+  transform: scaleY(1.1);         /* stretch bottom 10% */
 }
+
 
 /* Content locator */
 .home-content-locate {
-  position: absolute;
-  top: 8vh;
-  left: 38vw;
-  width: 44vw;
-  z-index: 3; /* ✅ higher than right image */
-  pointer-events: auto;
-  transform: translateX(-6%);
+  position: relative; /* ✅ from absolute → relative for flexible alignment */
+  z-index: 3;
+  width: 60%;
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: 19vw;
 }
 
-/* White content card */
+/* Content card */
 .home-content {
   background: #fff;
-  padding: 4.5rem 4rem;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-  border-radius: 6px;
+  padding: 3rem 2rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
   color: #111;
   font-family: "Inter", sans-serif;
   position: relative;
-  z-index: 3; /* ✅ ensures text stays above hill image */
+  z-index: 3;
 }
 
-/* Typography */
 .home-content h2 {
   font-family: "Playfair Display", serif;
   font-size: 3rem;
-  line-height: 1.05;
-  margin: 0 0 1.25rem 0;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
   font-weight: 600;
   color: #0f0f0f;
 }
 
-.home-content h2 span {
+.home-content h2 span,
+.home-content h2 em {
   font-style: italic;
   font-weight: 500;
 }
 
-.home-content h2 em {
-  font-style: italic;
-}
-
 .home-content p {
-  margin: 0 0 1rem 0;
-  line-height: 1.7;
+  margin-bottom: 1rem;
+  line-height: 1.8;
   color: #333;
-  font-size: 1rem;
+  font-size: 1.05rem;
 }
 
-/* ✅ FIXED: hill image visually overlaps but stays behind text */
+/* Right scenic image */
 .home-image-right {
   position: absolute;
-  right: 4rem;
-  bottom: -60px;
-  width: 360px;
-  height: 250px;
-  border-radius: 10px;
+  right: 3rem;
+  bottom: -50px;
+  width: 300px;
+  height: 200px;
+  border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.18);
-  z-index: 2; /* ✅ lower than content, so text is always visible */
-  pointer-events: none;
-}
-
-.home-image-right::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
-  opacity: 0.3;
+  z-index: 4;
   pointer-events: none;
 }
 
@@ -264,87 +466,217 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
-  display: block;
-  border-radius: 10px;
+  object-position: center bottom; /* shift focus to bottom */
+  transform-origin: bottom;
+  transform: scaleY(1.1);         /* stretch bottom 10% */
 }
 
 /* --------------------
-   RESPONSIVE ADJUST
-   -------------------- */
-@media (max-width: 1200px) {
-  .home-image-left {
-    width: 58vw;
-  }
+   ✅ RESPONSIVE FIXES
+-------------------- */
+
+/* 💻 Large desktop */
+@media (min-width: 1400px) {
   .home-content-locate {
-    left: 50vw;
-    width: 44vw;
-    transform: translateX(-8%);
+    width: 55%;
   }
 }
 
+/* 💻 Laptops (1025px–1399px) */
+@media (max-width: 1399px) {
+  .home-image-left {
+    width: 50vw;
+  }
+  .home-content-locate {
+    width: 65%;
+    margin-right: 4vw;
+  }
+  .home-content {
+    padding: 4rem 3rem;
+  }
+}
+
+/* 📱 Tablets (768px–1024px) */
+/* 📱 Tablets (≤1024px) */
 @media (max-width: 1024px) {
+  .home-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* more natural on tablet */
+    padding: 3rem 2rem;
+    background-color: #f8f4ef;
+    min-height: auto;
+  }
+
+  /* Left scenic image */
   .home-image-left {
     position: relative;
-    width: 100%;
-    height: 56vh;
+    width: 90%;
+    height: 45vh;
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 2rem auto 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .home-image-left:hover {
+    transform: scale(1.02);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.2);
   }
 
   .home-image-left img {
-    width: 100% !important;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+
+  /* Text content */
+  .home-content-locate {
+    width: 90%;
+    margin: 2rem auto 0;
+  }
+
+  .home-content {
+    background: #ffffff;
+    padding: 3rem 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .home-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 45px rgba(0, 0, 0, 0.12);
+  }
+
+  .home-content h2 {
+    font-size: 2.3rem;
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+    color: #0f0f0f;
+    margin-bottom: 1.2rem;
+  }
+
+  .home-content p {
+    font-size: 1.05rem;
+    color: #333;
+    line-height: 1.8;
+  }
+
+  /* Right scenic image */
+  .home-image-right {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 85%;
+    height: 250px;
+    margin: 2.5rem auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .home-image-right:hover {
+    transform: scale(1.03);
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.2);
+  }
+
+  .home-image-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+}
+
+/* 📱 Mobiles (≤767px) */
+@media (max-width: 767px) {
+  .home-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: auto;
+    overflow: visible;
+    padding: 0 1rem; /* ✅ adds consistent horizontal padding like left image */
+  }
+
+  .home-image-left {
+    position: relative;
+    width: 100%;
+    height: 45vh;
+    border-radius: 12px; /* for symmetry with right image */
+    overflow: hidden;
   }
 
   .home-content-locate {
     position: relative;
-    top: auto;
-    left: auto;
-    width: 90%;
-    margin: -8vh auto 0 auto;
-    transform: none;
-    margin-top: 4%;
+    width: 100%;
+    margin: 1.5rem auto 0;
     z-index: 3;
   }
 
   .home-content {
-    padding: 3rem 2.25rem;
-    box-shadow: none;
+    background: #fff;
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
   }
 
-  .home-image-right {
-    position: absolute;
-    right: 2rem;
-    bottom: -40px;
-    width: 300px;
-    height: 200px;
-    z-index: 2;
-  }
-}
-
-@media (max-width: 768px) {
-  .home-image-right {
-    position: relative;
-    bottom: auto;
-    right: auto;
-    margin: 2rem auto -2rem auto;
-    width: 80%;
-    height: 200px;
-    z-index: 2;
-  }
-}
-
-@media (max-width: 480px) {
   .home-content h2 {
-    font-size: 1.6rem;
+    font-size: 1.9rem;
   }
+
+  /* ✅ Right image matches left padding & visual spacing */
+  .home-image-right {
+    position: relative !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 100%;
+    height: auto;
+    margin: 2rem 0 1rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .home-image-right img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+/* 📱 Small Mobiles (≤480px) */
+@media (max-width: 480px) {
+  .home-section {
+    padding: 0 0.8rem; /* slightly reduced for smaller screens */
+  }
+
   .home-content {
     padding: 1.5rem;
   }
+
+  .home-content h2 {
+    font-size: 1.6rem;
+  }
+
+  .home-content p {
+    font-size: 0.95rem;
+  }
+
   .home-image-right {
-    height: 160px;
-    width: 90%;
-    margin-top: 1rem;
+    width: 100%;
+    margin: 1.5rem 0;
+    border-radius: 10px;
   }
 }
+
+
 
 /* ===============================
    WHY CHOOSE US

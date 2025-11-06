@@ -42,9 +42,10 @@ const About = () => {
           marginTop: -80,
         }}
       >
-        <h1>About Us</h1>
-      </div>
+        <h1>About Holyway Travels – Discover India’s Spiritual & Scenic Side</h1>
+        <p>Holyway Travels offers all-India tour packages with a special focus on Kerala & Spiritual destinations like Ayodhya and Mookambika</p>
 
+      </div>
       <div className="about-container">
         {/* Image with animation */}
         <div className="about-image" ref={imageRef}>
