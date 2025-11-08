@@ -174,7 +174,7 @@ const Home = () => {
       <section className="home-section">
         <div className="home-image-left">
           <img
-            src={`${process.env.PUBLIC_URL}/assets/images/hill2.jpg`}
+            src={`${process.env.PUBLIC_URL}/assets/images/travel_with_bag.avif`}
             alt="Beach View"
           />
         </div>
@@ -244,7 +244,7 @@ const Home = () => {
                 text: "Tailor-made itineraries across Kerala — perfect for families, groups, and romantic getaways.",
               },
               {
-                video: "ayodhya.mp4",
+                video: "ayodhya2.mp4",
                 title: "Ayodhya Divine Tour",
                 text: "Experience India’s spiritual capital — Shri Ram Mandir Darshan, Dasharath Mahal, and Sarayu Aarti.",
               },
